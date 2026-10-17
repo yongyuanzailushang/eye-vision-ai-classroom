@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>看清黑板 · AI眼球实验室</title><link rel="stylesheet" href="./style.css"></head>
+<body><main>
+<header><div><div class="eyebrow">眼和视觉 · 课堂互动实验</div><h1>怎样让黑板重新清晰？</h1></div><div class="top-actions"><span id="status" class="badge live">公开演示 · 无需密钥</span><button id="fullscreen" class="quiet">全屏</button></div></header>
+<section class="experiment" aria-label="同步光路与黑板实验">
+ <div class="eye-panel"><div class="panel-heading"><h2>眼睛里面发生了什么</h2><span id="eye-type">正常眼示例</span></div><canvas id="eye" width="1000" height="450" aria-label="眼内光路示意"></canvas><div class="legend"><span class="ray-dot"></span>光线 <span class="retina-dot"></span>视网膜 <span class="focus-dot"></span>几何焦点</div></div>
+ <div class="world-panel"><h2>看向远处的黑板</h2><canvas id="board" width="620" height="450" aria-label="远处黑板的清晰程度"></canvas><strong id="clarity">清晰</strong><p>黑板模糊程度为效果示意</p><p class="demo-note">公开网页演示：AI 对话功能用本地规则模拟，光学结果由模型计算。</p></div>
+</section>
+<section class="observation" aria-live="polite"><span id="source">计算观察</span><p id="fact"></p><p id="explanation"></p></section>
+<section class="assistant"><div class="input-heading"><h2>把你的想法告诉 AI</h2><span id="hint">输入一句话，演示助手会把它转换成实验操作</span></div><form id="command-form"><label class="sr-only" for="command">实验指令</label><input id="command" maxlength="300" autocomplete="off" placeholder="例如：把眼球拉长一点，先别配眼镜"><button id="send" type="submit">请 AI 操作</button></form><div class="examples"><span>试着说</span><button data-prompt="把眼球拉长一点，先别配眼镜">眼球变长一点</button><button data-prompt="换成凸透镜试试看">试试凸透镜</button><button data-prompt="刚才选错了，改成凹透镜">换成凹透镜</button><button data-prompt="恢复正常眼，不戴镜片">恢复正常眼</button></div></section>
+<details id="manual"><summary>手动实验（无需 AI，课前试用 / 离线备用）</summary><div class="manual-controls"><div class="button-group"><button data-action="normal">正常眼</button><button data-action="long_eye">长眼轴示例</button><button data-action="short_eye">短眼轴示例</button></div><div class="button-group"><button data-lens="none">不戴镜片</button><button data-lens="concave">凹透镜</button><button data-lens="convex">凸透镜</button></div><label>眼球前后径 <input id="length" type="range" min="15" max="19" step="0.1" value="17"> <output id="length-value">正常</output></label></div></details>
+<footer>远物、调节放松的等效薄透镜模型 · AI 理解指令，光学模型计算结果 · 演示后按 Alt + Tab 返回 PPT</footer>
+</main><script type="module" src="./app.mjs"></script></body></html>
